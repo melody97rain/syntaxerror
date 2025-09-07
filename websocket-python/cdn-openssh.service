@@ -1,0 +1,17 @@
+# /etc/systemd/system/cdn-openssh.service
+[Unit]
+Description=Python WS-OpenSSH by Virtual
+Documentation=https://virtual.xyz
+After=network.target nss-lookup.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -O /usr/local/bin/cdn-openssh 2085
+Restart=on-failure
+User=root
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+Description=Python WS-Dropbear By Virtual
+Documentation=https://virtual.xyz
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -O /usr/local/bin/cdn-dropbear 2081
+Restart=always
+RestartSec=3
+User=root
+WorkingDirectory=/usr/local/bin
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
